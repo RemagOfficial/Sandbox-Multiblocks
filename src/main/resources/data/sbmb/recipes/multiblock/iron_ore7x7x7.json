@@ -1,0 +1,80 @@
+{
+  "type": "sbmb:multiblock",
+  "size": 7,
+  "pattern": [
+    [
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:raw_iron_block","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"],
+      ["minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone","minecraft:stone"]
+    ]
+  ],
+  "layer_comments": [
+    "Layer 1: Closest to the player (the face clicked)",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4: Center of the cube",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7: Farthest from the player"
+  ],
+  "result": "minecraft:iron_ore",
+  "count": 64
+}

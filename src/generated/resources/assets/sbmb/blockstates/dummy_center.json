@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "sbmb:block/dummy_center"
+    }
+  }
+}

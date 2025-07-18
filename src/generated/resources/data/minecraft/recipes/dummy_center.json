@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "minecraft:sandstone"
+    },
+    "T": {
+      "item": "minecraft:target"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "STS",
+    "SSS"
+  ],
+  "result": {
+    "count": 4,
+    "item": "sbmb:dummy_center"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,27 @@
+{
+  "type": "sbmb:multiblock",
+  "size": 3,
+  "pattern": [
+    [
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:raw_copper_block", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"]
+    ]
+  ],
+  "layer_comments": [
+    "Layer 1: Closest to the player (the face clicked)",
+    "Layer 2: One block further away",
+    "Layer 3: Farthest from the player"
+  ],
+  "result": "minecraft:copper_ore"
+}

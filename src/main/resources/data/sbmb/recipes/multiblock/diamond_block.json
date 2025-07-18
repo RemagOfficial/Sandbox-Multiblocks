@@ -1,0 +1,28 @@
+{
+  "type": "sbmb:multiblock",
+  "size": 3,
+  "pattern": [
+    [
+      ["minecraft:dirt", "minecraft:dirt", "minecraft:dirt"],
+      ["minecraft:dirt", "minecraft:cobblestone", "minecraft:dirt"],
+      ["minecraft:dirt", "minecraft:dirt", "minecraft:dirt"]
+    ],
+    [
+      ["minecraft:stone", "minecraft:raw_gold_block", "minecraft:stone"],
+      ["minecraft:raw_gold_block", "minecraft:diamond_block", "minecraft:raw_gold_block"],
+      ["minecraft:stone", "minecraft:raw_gold_block", "minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:dirt", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"]
+    ]
+  ],
+  "layer_comments": [
+    "Layer 1: Closest to the player (the face clicked) - Mostly Dirt with Cobblestone Center",
+    "Layer 2: One block further away - Gold & Diamond Core",
+    "Layer 3: Farthest from the player - Mostly Stone with Dirt Accent"
+  ],
+  "result": "minecraft:diamond_block",
+  "count": 1
+}
