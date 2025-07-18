@@ -23,24 +23,9 @@ run
 
 # Files from Forge MDK
 forge*changelog.txt
-/src/generated/resources/.cache/1fa5e64e069758fd7eaae4ed3b9bd6ff69b239fa
-/src/generated/resources/.cache/9fb1092f32d4fcbf9e061ffd718d4ec689c6c95e
-/src/generated/resources/.cache/59eb3dbb5f86130e09b3c62d89b9525ee01cf52d
-/run-data/logs/2025-07-17-2.log.gz
-/run-data/logs/2025-07-18-1.log.gz
-/run-data/logs/2025-07-18-2.log.gz
-/run-data/logs/2025-07-18-3.log.gz
-/src/generated/resources/.cache/b8df394aead57cca644271fdbe6d047da663639e
-/src/generated/resources/.cache/cbc80a73449658f0ce5d8c1d571232af3dc62471
+/src/generated/resources/.cache/*
+/run-data/*
 /changelog.txt
 /CREDITS.txt
-/src/generated/resources/.cache/d08f952aad9a9735aa6a886ffadbad89d3d5b327
-/run-data/logs/debug.log
-/run-data/logs/debug-1.log.gz
-/run-data/logs/debug-2.log.gz
-/run-data/logs/debug-3.log.gz
-/run-data/logs/debug-4.log.gz
-/run-data/config/fml.toml
-/run-data/logs/latest.log
 /LICENSE.txt
 /README.txt
