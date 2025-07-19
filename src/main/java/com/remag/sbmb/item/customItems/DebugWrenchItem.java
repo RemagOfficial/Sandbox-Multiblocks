@@ -125,7 +125,7 @@ public class DebugWrenchItem extends Item {
                 }
             }
             assert player != null;
-            JsonObject recipe = createMultiblockRecipe(player.getOffhandItem(), size, detectedPattern);
+            JsonObject recipe = createMultiblockRecipe(player, size, detectedPattern);
             saveMultiblockRecipe(recipe, player);
             return InteractionResult.SUCCESS;
         }
@@ -165,7 +165,7 @@ public class DebugWrenchItem extends Item {
         return new BlockPos(x, y, z);
     }
 
-    public JsonObject createMultiblockRecipe(ItemStack offhandItem, int size, String[][][] detectedPattern) {
+    public JsonObject createMultiblockRecipe(Player player, int size, String[][][] detectedPattern) {
         JsonObject recipe = new JsonObject();
 
         // Basic fields
@@ -198,8 +198,12 @@ public class DebugWrenchItem extends Item {
         recipe.add("layer_comments", comments);
 
         // Result item
+        ItemStack offhandItem = player.getOffhandItem();
         Item resultItem = offhandItem.getItem();
         ResourceLocation resultId = ForgeRegistries.ITEMS.getKey(resultItem);
+        if (offhandItem.isEmpty()) {
+            player.displayClientMessage(Component.literal("Please place the item you want as the result into your offhand. Its count will determine how many are crafted.").withStyle(ChatFormatting.RED), true);
+        }
         assert resultId != null;
         recipe.addProperty("result", resultId.toString());
 
