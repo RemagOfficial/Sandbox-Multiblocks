@@ -126,7 +126,7 @@ public class DebugWrenchItem extends Item {
             }
             assert player != null;
             JsonObject recipe = createMultiblockRecipe(player.getOffhandItem(), size, detectedPattern);
-            saveMultiblockRecipe(recipe);
+            saveMultiblockRecipe(recipe, player);
             return InteractionResult.SUCCESS;
         }
 
@@ -212,7 +212,7 @@ public class DebugWrenchItem extends Item {
         return recipe;
     }
 
-    public void saveMultiblockRecipe(JsonObject recipeJsonObject) {
+    public void saveMultiblockRecipe(JsonObject recipeJsonObject, Player player) {
         File mcRoot = FMLPaths.GAMEDIR.get().toFile();
         File multiblockFolder = new File(mcRoot, "multiblocks");
 
@@ -263,10 +263,9 @@ public class DebugWrenchItem extends Item {
             }
 
             writer.endObject();
-
-            System.out.println("Recipe saved to " + outputFile.getAbsolutePath());
+            player.displayClientMessage(Component.literal("Multiblock recipe successfully saved to: multiblocks/" + outputFile.getName()).withStyle(ChatFormatting.GREEN), true);
         } catch (IOException e) {
-            SandboxMultiblocks.LOGGER.error("Failed to save multiblock recipe to file: {}", outputFile.getAbsolutePath(), e);
+            player.displayClientMessage(Component.literal("Failed to save multiblock recipe to file: " + outputFile.getName()).withStyle(ChatFormatting.RED), true);
         }
     }
 
