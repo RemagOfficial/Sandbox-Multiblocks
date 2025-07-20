@@ -7,6 +7,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
@@ -29,5 +30,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("SSS")
                 .unlockedBy("has", has(ModItems.DUMMY_CENTER.get()))
                 .save(pWriter, "dummy_center");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CRAFTING_HAMMER.get())
+                .define('S', Items.STICK)
+                .define('I', Items.IRON_INGOT)
+                .pattern("III")
+                .pattern(" S ")
+                .pattern(" S ")
+                .unlockedBy("has", has(ModItems.CRAFTING_HAMMER.get()))
+                .save(pWriter, "multiblock_crafting_hammer");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DEBUG_WRENCH.get())
+                .define('S', Items.STICK)
+                .define('I', Items.IRON_INGOT)
+                .pattern(" I ")
+                .pattern(" SI")
+                .pattern("S  ")
+                .unlockedBy("has", has(ModItems.DEBUG_WRENCH.get()))
+                .save(pWriter, "multiblock_debug_wrench");
     }
 }
