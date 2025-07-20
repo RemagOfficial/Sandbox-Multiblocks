@@ -5,7 +5,7 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
 
-version = mod_version
+version = mod_version + "-" + minecraft_version
 group = mod_group_id
 
 base {
@@ -120,6 +120,13 @@ repositories {
     // flatDir {
     //     dir 'libs'
     // }
+
+    maven {
+        url "https://maven.blamejared.com/"
+    }
+    maven {
+        url "https://modmaven.dev"
+    }
 }
 
 dependencies {
@@ -144,6 +151,9 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-forge:15.20.0.112"))
+    runtimeOnly(fg.deobf("mezz.jei:jei-1.20.1-forge:15.20.0.112"))
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
