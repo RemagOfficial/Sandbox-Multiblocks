@@ -35,18 +35,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', Items.STICK)
                 .define('I', Items.IRON_INGOT)
                 .pattern("III")
-                .pattern(" S ")
+                .pattern("ISI")
                 .pattern(" S ")
                 .unlockedBy("has", has(ModItems.CRAFTING_HAMMER.get()))
                 .save(pWriter, "multiblock_crafting_hammer");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DEBUG_WRENCH.get())
-                .define('S', Items.STICK)
-                .define('I', Items.IRON_INGOT)
-                .pattern(" I ")
-                .pattern(" SI")
-                .pattern("S  ")
-                .unlockedBy("has", has(ModItems.DEBUG_WRENCH.get()))
-                .save(pWriter, "multiblock_debug_wrench");
     }
 }
