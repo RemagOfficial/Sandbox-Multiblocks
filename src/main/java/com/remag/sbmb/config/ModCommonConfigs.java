@@ -22,7 +22,7 @@ public class ModCommonConfigs {
 
             maxMultiblockSize = builder
                     .comment("Maximum multiblock size (must be odd number ≥ 3)")
-                    .defineInRange("maxMultiblockSize", 7, 3, 99);  // Default 7, range 3 to 99
+                    .defineInRange("maxMultiblockSize", 7, 3, 21);  // Default 7, range 3 to 21
 
             builder.pop();
         }
