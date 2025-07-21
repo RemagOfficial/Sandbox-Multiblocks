@@ -1,6 +1,7 @@
 package com.remag.sbmb.item.customItems;
 
 import com.remag.sbmb.SandboxMultiblocks;
+import com.remag.sbmb.config.ModCommonConfigs;
 import com.remag.sbmb.multiblock.MultiblockRecipe;
 import com.remag.sbmb.recipe.ModRecipeTypes;
 import net.minecraft.ChatFormatting;
@@ -174,12 +175,20 @@ public class CraftingHammerItem extends Item {
     }
 
     private int getNextSize(int currentSize) {
-        // Cycle between 3x3x3, 5x5x5, and 7x7x7 for example
-        return switch (currentSize) {
-            case 3 -> 5;
-            case 5 -> 7;
-            default -> 3;
-        };
+        int maxSize = ModCommonConfigs.COMMON.maxMultiblockSize.get();
+
+        // Ensure maxSize is odd and ≥ 3
+        if (maxSize < 3 || maxSize % 2 == 0) {
+            maxSize = 7; // fallback default
+        }
+
+        // Cycle to the next odd size up to maxSize
+        int nextSize = currentSize + 2;
+        if (nextSize > maxSize) {
+            nextSize = 3;
+        }
+
+        return nextSize;
     }
 
     public static int getSelectedSize(ItemStack stack) {

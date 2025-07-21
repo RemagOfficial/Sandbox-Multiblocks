@@ -2,6 +2,7 @@ package com.remag.sbmb;
 
 import com.mojang.logging.LogUtils;
 import com.remag.sbmb.block.ModBlocks;
+import com.remag.sbmb.config.ModCommonConfigs;
 import com.remag.sbmb.item.ModItems;
 import com.remag.sbmb.multiblock.MultiblockRecipe;
 import com.remag.sbmb.multiblock.MultiblockRecipeSerializer;
@@ -20,7 +21,9 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -59,6 +62,8 @@ public class SandboxMultiblocks
         ModCreativeModeTab.TABS.register(modEventBus);
         SERIALIZERS.register(modEventBus);
         ModRecipeTypes.RECIPE_TYPES.register(modEventBus);
+
+        context.registerConfig(ModConfig.Type.COMMON, ModCommonConfigs.COMMON_CONFIG);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

@@ -66,7 +66,12 @@ public class MultiblockRecipeCategory implements IRecipeCategory<MultiblockRecip
         poseStack.translate(40, 22, 150);
         poseStack.mulPose(Axis.XP.rotationDegrees(330));
         poseStack.mulPose(Axis.YP.rotationDegrees(45));
-        poseStack.scale(10f, -10f, 10f); // Flip Y, scale down
+        int size = recipe.size;
+        float baseScale = 10f;
+        float scale = baseScale * (3f / size);
+
+        poseStack.scale(scale, -scale, scale); // Flip Y, apply scale
+
 
         BlockRenderDispatcher dispatcher = mc.getBlockRenderer();
         ModelBlockRenderer modelRenderer = dispatcher.getModelRenderer();
