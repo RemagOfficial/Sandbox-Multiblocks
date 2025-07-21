@@ -135,20 +135,16 @@ public class DebugWrenchItem extends Item {
     }
 
     private int getNextSize(int currentSize) {
-        int maxSize = ModCommonConfigs.COMMON.maxMultiblockSize.get();
+        int max = ModCommonConfigs.COMMON.maxMultiblockSize.get();
 
-        // Ensure maxSize is odd and ≥ 3
-        if (maxSize < 3 || maxSize % 2 == 0) {
-            maxSize = 7; // fallback default
+        // Ensure max is odd
+        if (max % 2 == 0) {
+            max -= 1;
         }
 
-        // Cycle to the next odd size up to maxSize
-        int nextSize = currentSize + 2;
-        if (nextSize > maxSize) {
-            nextSize = 3;
-        }
-
-        return nextSize;
+        // Return the next odd size greater than currentSize, or wrap back to 3
+        int next = currentSize + 2;
+        return next <= max ? next : 3;
     }
 
     public static int getSelectedSize(ItemStack stack) {
