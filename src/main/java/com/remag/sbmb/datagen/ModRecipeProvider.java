@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
@@ -30,7 +29,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("SSS")
                 .pattern("STS")
                 .pattern("SSS")
-                .unlockedBy("has", has(ModItems.DUMMY_CENTER.get()))
+                .unlockedBy("has", has(ModBlocks.DUMMY_CENTER.asItem()))
                 .save(recipeOutput, "dummy_center");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CRAFTING_HAMMER.get())

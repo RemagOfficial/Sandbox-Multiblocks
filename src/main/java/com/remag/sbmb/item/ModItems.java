@@ -21,10 +21,4 @@ public class ModItems {
 
     public static final DeferredItem<Item> DEBUG_WRENCH = addToTab(ITEMS.register("debug_wrench",
             () -> new DebugWrenchItem(new Item.Properties())));
-
-    public static final DeferredItem<Item> DUMMY_CENTER = addToTab(ITEMS.register("dummy_center",
-            () -> new BlockItem(ModBlocks.DUMMY_CENTER.get(),
-                    new Item.Properties()
-            )
-    ));
 }

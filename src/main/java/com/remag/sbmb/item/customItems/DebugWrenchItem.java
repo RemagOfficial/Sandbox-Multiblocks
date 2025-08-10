@@ -6,6 +6,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
 import com.remag.sbmb.SandboxMultiblocks;
+import com.remag.sbmb.components.ModDataComponents;
 import com.remag.sbmb.config.ModCommonConfigs;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -46,10 +47,9 @@ public class DebugWrenchItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
 
         if (player.isShiftKeyDown()) {
-            CompoundTag tag = stack.getOrCreateTag();
-            int currentSize = tag.getInt(SIZE_KEY);
+            int currentSize = stack.getOrDefault(ModDataComponents.MULTIBLOCK_SIZE, 3);
             int newSize = getNextSize(currentSize);
-            tag.putInt(SIZE_KEY, newSize);
+            stack.set(ModDataComponents.MULTIBLOCK_SIZE, newSize);
 
             if (!level.isClientSide) {
                 player.displayClientMessage(Component.literal("Multiblock size set to: " + newSize), true);
@@ -62,9 +62,8 @@ public class DebugWrenchItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        CompoundTag tag = stack.getTag();
-        int size = tag != null && tag.contains(SIZE_KEY) ? tag.getInt(SIZE_KEY) : 3;
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        int size = stack.getOrDefault(ModDataComponents.MULTIBLOCK_SIZE, 3);
         tooltip.add(Component.translatable("tooltip." + SandboxMultiblocks.MODID + ".hammer_size", size)
                 .withStyle(ChatFormatting.GRAY));
     }
@@ -147,7 +146,7 @@ public class DebugWrenchItem extends Item {
     }
 
     public static int getSelectedSize(ItemStack stack) {
-        return stack.getOrCreateTag().getInt(SIZE_KEY);
+        return stack.getOrDefault(ModDataComponents.MULTIBLOCK_SIZE, 3);
     }
 
     private BlockPos offsetInPlane(BlockPos origin, Direction.Axis axis1, Direction.Axis axis2, int off1, int off2) {

@@ -2,13 +2,17 @@ package com.remag.sbmb;
 
 import com.mojang.logging.LogUtils;
 import com.remag.sbmb.block.ModBlocks;
+import com.remag.sbmb.components.ModDataComponents;
 import com.remag.sbmb.config.ModCommonConfigs;
 import com.remag.sbmb.item.ModItems;
 import com.remag.sbmb.multiblock.MultiblockRecipe;
-import com.remag.sbmb.multiblock.MultiblockRecipeSerializer;
+import com.remag.sbmb.recipe.ModRecipeSerializers;
 import com.remag.sbmb.recipe.ModRecipeTypes;
 import com.remag.sbmb.tab.ModCreativeModeTab;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.neoforged.api.distmarker.Dist;
@@ -28,6 +32,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 import java.util.Collection;
+import java.util.List;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(SandboxMultiblocks.MODID)
@@ -38,23 +43,18 @@ public class SandboxMultiblocks
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
-            DeferredRegister.create(Registries.RECIPE_SERIALIZER, MODID);
-
-    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MultiblockRecipe>> MULTIBLOCK_SERIALIZER =
-            SERIALIZERS.register("multiblock", MultiblockRecipeSerializer::new);
-
     public SandboxMultiblocks(IEventBus modEventBus, ModContainer modContainer)
     {
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModDataComponents.DATA_COMPONENT_TYPES.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModCreativeModeTab.TABS.register(modEventBus);
-        SERIALIZERS.register(modEventBus);
         ModRecipeTypes.RECIPE_TYPES.register(modEventBus);
+        ModRecipeSerializers.SERIALIZERS.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, ModCommonConfigs.COMMON_CONFIG);
 
@@ -77,13 +77,13 @@ public class SandboxMultiblocks
     {
         RecipeManager recipeManager = event.getServer().getRecipeManager();
 
-        Collection<MultiblockRecipe> multiblockRecipes = recipeManager.getAllRecipesFor(ModRecipeTypes.MULTIBLOCK_RECIPE_TYPE.get());
+        List<RecipeHolder<MultiblockRecipe>> recipes = recipeManager.getAllRecipesFor(ModRecipeTypes.MULTIBLOCK_RECIPE_TYPE.get());
 
-        if (multiblockRecipes.isEmpty())
+        if (recipes.isEmpty())
         {
             LOGGER.info("No multiblock recipes found in the server");
         } else {
-            LOGGER.info("Found {} multiblock recipes in the server", multiblockRecipes.size());
+            LOGGER.info("Found {} multiblock recipes in the server", recipes.size());
         }
     }
 
