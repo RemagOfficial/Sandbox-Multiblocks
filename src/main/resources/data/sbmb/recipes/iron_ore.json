@@ -1,0 +1,23 @@
+{
+  "type": "sbmb:multiblock",
+  "size": 3,
+  "pattern": [
+    [
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:raw_iron_block", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"]
+    ],
+    [
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"],
+      ["minecraft:stone", "minecraft:stone", "minecraft:stone"]
+    ]
+  ],
+  "result": "minecraft:iron_ore",
+  "count": 16
+}
