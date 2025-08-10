@@ -1,23 +1,23 @@
 package com.remag.sbmb.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class ModCommonConfigs {
-    public static final ForgeConfigSpec COMMON_CONFIG;
+    public static final ModConfigSpec COMMON_CONFIG;
     public static final ConfigValues COMMON;
 
     static {
-        final Pair<ConfigValues, ForgeConfigSpec> specPair =
-                new ForgeConfigSpec.Builder().configure(ConfigValues::new);
+        final Pair<ConfigValues, ModConfigSpec> specPair =
+                new ModConfigSpec.Builder().configure(ConfigValues::new);
         COMMON = specPair.getLeft();
         COMMON_CONFIG = specPair.getRight();
     }
 
     public static class ConfigValues {
-        public final ForgeConfigSpec.IntValue maxMultiblockSize;
+        public final ModConfigSpec.IntValue maxMultiblockSize;
 
-        public ConfigValues(ForgeConfigSpec.Builder builder) {
+        public ConfigValues(ModConfigSpec.Builder builder) {
             builder.push("multiblock");
 
             maxMultiblockSize = builder

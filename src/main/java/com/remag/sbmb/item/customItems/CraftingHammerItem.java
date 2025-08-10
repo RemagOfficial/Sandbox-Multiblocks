@@ -10,6 +10,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +28,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -128,7 +128,7 @@ public class CraftingHammerItem extends Item {
 
                         BlockPos offset = offsetInPlane(sliceCenter, axis1, axis2, dx, dy);
                         BlockState state = level.getBlockState(offset);
-                        ResourceLocation id = ForgeRegistries.BLOCKS.getKey(state.getBlock());
+                        ResourceLocation id = BuiltInRegistries.BLOCK.getKey(state.getBlock());
 
                         String idStr = id != null ? id.toString() : "null";
 
@@ -273,7 +273,7 @@ public class CraftingHammerItem extends Item {
     }
 
     public void spawnResultItem(Level level, BlockPos origin, String resultItemId, int count) {
-        Item item = ForgeRegistries.ITEMS.getValue(ResourceLocation.tryParse(resultItemId));
+        Item item = BuiltInRegistries.ITEM.get(ResourceLocation.tryParse(resultItemId));
         if (item != null) {
             ItemStack stack = new ItemStack(item, count);
             ItemEntity itemEntity = new ItemEntity(level,

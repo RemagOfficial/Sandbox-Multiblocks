@@ -1,6 +1,6 @@
 package com.remag.sbmb.compat;
 
-import com.mojang.blaze3d.systems.RenderSystem;
+/* import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -173,4 +173,4 @@ public class MultiblockRecipeCategory implements IRecipeCategory<MultiblockRecip
         builder.addSlot(RecipeIngredientRole.OUTPUT, 120, 15)
                 .addItemStack(new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(ResourceLocation.tryParse(recipe.result))), recipe.count));
     }
-}
+} */

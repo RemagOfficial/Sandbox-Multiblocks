@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.remag.sbmb.SandboxMultiblocks;
 import com.remag.sbmb.recipe.ModRecipeTypes;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
@@ -13,7 +14,6 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class MultiblockRecipe implements Recipe<Container> {
 
     @Override
     public ItemStack assemble(Container inv, RegistryAccess access) {
-        Item item = ForgeRegistries.ITEMS.getValue(ResourceLocation.tryParse(result));
+        Item item = BuiltInRegistries.ITEM.get(ResourceLocation.tryParse(result));
         return item == null ? ItemStack.EMPTY : new ItemStack(item, count);
     }
 
@@ -53,7 +53,7 @@ public class MultiblockRecipe implements Recipe<Container> {
 
     @Override
     public ItemStack getResultItem(RegistryAccess access) {
-        Item item = ForgeRegistries.ITEMS.getValue(ResourceLocation.tryParse(result));
+        Item item = BuiltInRegistries.ITEM.get(ResourceLocation.tryParse(result));
         return item == null ? ItemStack.EMPTY : new ItemStack(item, count);
     }
 

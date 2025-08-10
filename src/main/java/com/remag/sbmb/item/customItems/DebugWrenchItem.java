@@ -25,8 +25,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.fml.loading.FMLPaths;
 
 import javax.annotation.Nullable;
 import java.io.File;
@@ -117,7 +116,7 @@ public class DebugWrenchItem extends Item {
                         int col = dx + half;
                         BlockPos offset = offsetInPlane(sliceCenter, axis1, axis2, dx, dy);
                         BlockState state = level.getBlockState(offset);
-                        ResourceLocation id = ForgeRegistries.BLOCKS.getKey(state.getBlock());
+                        ResourceLocation id = BuiltInRegistries.BLOCK.getKey(state.getBlock());
 
                         String idStr = id != null ? id.toString() : "null";
                         grid[row][col] = id != null ? id.getPath() : "null";
@@ -206,7 +205,7 @@ public class DebugWrenchItem extends Item {
         // Result item
         ItemStack offhandItem = player.getOffhandItem();
         Item resultItem = offhandItem.getItem();
-        ResourceLocation resultId = ForgeRegistries.ITEMS.getKey(resultItem);
+        ResourceLocation resultId = BuiltInRegistries.ITEM.getKey(resultItem);
         if (offhandItem.isEmpty()) {
             player.displayClientMessage(Component.literal("Please place the item you want as the result into your offhand. Its count will determine how many are crafted.").withStyle(ChatFormatting.RED), true);
         }

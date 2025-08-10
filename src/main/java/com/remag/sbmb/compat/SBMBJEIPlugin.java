@@ -1,6 +1,6 @@
 package com.remag.sbmb.compat;
 
-import com.remag.sbmb.SandboxMultiblocks;
+/* import com.remag.sbmb.SandboxMultiblocks;
 import com.remag.sbmb.item.ModItems;
 import com.remag.sbmb.multiblock.MultiblockRecipe;
 import com.remag.sbmb.recipe.ModRecipeTypes;
@@ -44,4 +44,4 @@ public class SBMBJEIPlugin implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(ModItems.CRAFTING_HAMMER.get()), RecipeType.create(SandboxMultiblocks.MODID, "multiblock", MultiblockRecipe.class));
     }
-}
+} */

@@ -7,22 +7,22 @@ import com.remag.sbmb.item.customItems.DebugWrenchItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static com.remag.sbmb.tab.ModCreativeModeTab.addToTab;
 
 public class ModItems {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, SandboxMultiblocks.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(SandboxMultiblocks.MODID);
 
-    public static final RegistryObject<Item> CRAFTING_HAMMER = addToTab(ITEMS.register("crafting_hammer",
+    public static final DeferredItem<Item> CRAFTING_HAMMER = addToTab(ITEMS.register("crafting_hammer",
             () -> new CraftingHammerItem(new Item.Properties())));
 
-    public static final RegistryObject<Item> DEBUG_WRENCH = addToTab(ITEMS.register("debug_wrench",
+    public static final DeferredItem<Item> DEBUG_WRENCH = addToTab(ITEMS.register("debug_wrench",
             () -> new DebugWrenchItem(new Item.Properties())));
 
-    public static final RegistryObject<Item> DUMMY_CENTER = addToTab(ITEMS.register("dummy_center",
+    public static final DeferredItem<Item> DUMMY_CENTER = addToTab(ITEMS.register("dummy_center",
             () -> new BlockItem(ModBlocks.DUMMY_CENTER.get(),
                     new Item.Properties()
             )
