@@ -29,11 +29,15 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.GZIPOutputStream;
 
 public class DebugWrenchItem extends Item {
     private static final String SIZE_KEY = "MultiblockSize";
@@ -178,20 +182,45 @@ public class DebugWrenchItem extends Item {
         recipe.addProperty("type", "sbmb:multiblock");
         recipe.addProperty("size", size);
 
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
         // Pattern
-        JsonArray patternArray = new JsonArray();
-        for (int layer = 0; layer < size; layer++) {
-            JsonArray layerArray = new JsonArray();
-            for (int row = 0; row < size; row++) {
-                JsonArray rowArray = new JsonArray();
-                for (int col = 0; col < size; col++) {
-                    rowArray.add(detectedPattern[layer][row][col]);
+        if (size > 7) {
+            // Compress the pattern for very large recipes
+            JsonArray patternArray = new JsonArray();
+            for (int layer = 0; layer < size; layer++) {
+                JsonArray layerArray = new JsonArray();
+                for (int row = 0; row < size; row++) {
+                    JsonArray rowArray = new JsonArray();
+                    for (int col = 0; col < size; col++) {
+                        rowArray.add(detectedPattern[layer][row][col]);
+                    }
+                    layerArray.add(rowArray);
                 }
-                layerArray.add(rowArray);
+                patternArray.add(layerArray);
             }
-            patternArray.add(layerArray);
+
+            // Convert, compress, and store
+            String patternJson = gson.toJson(patternArray);
+            String compressed = compressBase64(patternJson);
+            recipe.addProperty("pattern_compressed", compressed);
+            recipe.addProperty("compressed", true); // optional flag for readability
+        } else {
+            // Normal readable pattern
+            JsonArray patternArray = new JsonArray();
+            for (int layer = 0; layer < size; layer++) {
+                JsonArray layerArray = new JsonArray();
+                for (int row = 0; row < size; row++) {
+                    JsonArray rowArray = new JsonArray();
+                    for (int col = 0; col < size; col++) {
+                        rowArray.add(detectedPattern[layer][row][col]);
+                    }
+                    layerArray.add(rowArray);
+                }
+                patternArray.add(layerArray);
+            }
+            recipe.add("pattern", patternArray);
         }
-        recipe.add("pattern", patternArray);
 
         // Optional comments
         JsonArray comments = new JsonArray();
@@ -208,7 +237,9 @@ public class DebugWrenchItem extends Item {
         Item resultItem = offhandItem.getItem();
         ResourceLocation resultId = ForgeRegistries.ITEMS.getKey(resultItem);
         if (offhandItem.isEmpty()) {
-            player.displayClientMessage(Component.literal("Please place the item you want as the result into your offhand. Its count will determine how many are crafted.").withStyle(ChatFormatting.RED), true);
+            player.displayClientMessage(Component.literal(
+                    "Please place the item you want as the result into your offhand. " +
+                            "Its count will determine how many are crafted.").withStyle(ChatFormatting.RED), true);
         }
         assert resultId != null;
         recipe.addProperty("result", resultId.toString());
@@ -221,6 +252,20 @@ public class DebugWrenchItem extends Item {
 
         return recipe;
     }
+
+    // --- Helper functions ---
+
+    private static String compressBase64(String json) {
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream();
+             GZIPOutputStream gzip = new GZIPOutputStream(out)) {
+            gzip.write(json.getBytes(StandardCharsets.UTF_8));
+            gzip.finish();
+            return Base64.getEncoder().encodeToString(out.toByteArray());
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to compress pattern JSON", e);
+        }
+    }
+
 
     public void saveMultiblockRecipe(JsonObject recipeJsonObject, Player player) {
         File mcRoot = FMLPaths.GAMEDIR.get().toFile();
